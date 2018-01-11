@@ -6,13 +6,13 @@ var uuid = require('uuid-v4');
 
 const deliveredAssignments = []
 
-
-
 assignments.get('/', function (req, res) {
     //console.log('get, delivering:',deliveredAssignments)
     //TODO: check if there is a filter, and filter
-    res.json(deliveredAssignments)
-
+    if (req.query.limit !== '' && req.query.limit > 0)
+        res.json(deliveredAssignments.slice(0,req.query.limit));
+    else
+        res.json(deliveredAssignments)
 })
 
 assignments.post('/', function (req, res) {

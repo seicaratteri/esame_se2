@@ -93,11 +93,3 @@ test('delete by assignmentID - item actually deleted', () => {
         .then(res => {expect(res.status).toBe(404)})
         //.catch(e => {console.log(e)})
 });
-
-
-
-
-
-
-
-
